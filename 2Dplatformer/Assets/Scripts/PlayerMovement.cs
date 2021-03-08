@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    float moveLimiter = 0.7f;
     public Rigidbody2D rb;
     Vector2 movement;
     public bool hasTool = false;
@@ -26,6 +27,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Need to limit diagonal movespeed 
+        if (movement.x != 0 && movement.y != 0)
+        {
+            // Move at 70% speed diagonally
+            movement.x *= moveLimiter;
+            movement.y *= moveLimiter;
+        }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
