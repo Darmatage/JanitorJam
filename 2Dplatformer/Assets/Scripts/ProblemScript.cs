@@ -4,19 +4,34 @@ using UnityEngine;
 
 public class ProblemScript : MonoBehaviour
 {
+    private GameObject playerObject;
+
     public bool solvedByMop;
     public bool solvedByBroom;
 
 
-    // Start is called before the first frame update
+    private float distance;
+    private float minimumDistance = 2f;
+
     void Start()
     {
+        playerObject = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
+        distance = Vector3.Distance(playerObject.transform.position, transform.position);
+
+        if (distance <= minimumDistance)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (true)
+                {
+                    Destroy(gameObject);
+                }
+            }
+
+        }
     }
 }
-
-
