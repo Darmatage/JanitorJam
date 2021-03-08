@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ProblemScript : MonoBehaviour
 {
-    public bool solvedByMop;
-    public bool solvedByBroom;
+    public bool solvedByMop = false;
+    public bool solvedByBroom = false;
 
     public class problem
     {
