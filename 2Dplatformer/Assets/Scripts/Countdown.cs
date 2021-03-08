@@ -18,7 +18,7 @@ public class Countdown : MonoBehaviour
         timerIsRunning = true;
 
         // Spawn problems
-        InvokeRepeating("SpawnProblems", 2.0f, 2.0f);
+        InvokeRepeating("SpawnProblems", 2.0f, 10.0f);
     }
 
     // Update is called once per frame
@@ -60,6 +60,26 @@ public class Countdown : MonoBehaviour
 
     void SpawnProblems()
     {
-        GameObject instance = Instantiate(problem, new Vector3(0, 0, 0), Quaternion.identity);
+        float spawn_x;
+        float spawn_y;
+
+        float[,] room_ranges = new float[,]
+        {
+            { -8.7f, 3.5f, -3.7f, 0.0f },
+            { -0.5f, 4.0f, 1.6f, 1.15f },
+            { 4.7f, 4.0f, 9.0f, 1.0f },
+            { -9.3f, -3.3f, -3.4f, -4.0f },
+            { -0.4f, -2.0f, 3.0f, -4.2f },
+            { 5.8f, -1.7f, 9.3f, -4.1f }
+        };
+
+        int room_index = Random.Range(0, 6);
+        spawn_x = Random.Range( room_ranges[room_index, 0], room_ranges[room_index, 2] );
+        spawn_y = Random.Range(room_ranges[room_index, 1], room_ranges[room_index, 3]);
+
+        // Need to make more prefabs of different problem types then randomly choose one 
+        GameObject problemInstance = Instantiate(problem, new Vector3(spawn_x, spawn_y, 0), Quaternion.identity);
+        problemInstance.GetComponent<ProblemScript>().solvedByMop = true;
+        problemInstance.GetComponent<ProblemScript>().solvedByBroom = true;
     }
 }
