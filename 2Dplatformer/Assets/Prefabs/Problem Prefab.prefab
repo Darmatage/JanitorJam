@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb2f5684e179054982f5fc93145954a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObject: {fileID: 0}
   solvedByMop: 0
   solvedByBroom: 0
 --- !u!1 &5171147567929279752
@@ -108,7 +109,7 @@ GameObject:
   - component: {fileID: 3805338313069706384}
   - component: {fileID: 1978811751778419758}
   m_Layer: 0
-  m_Name: red janitor
+  m_Name: spill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
