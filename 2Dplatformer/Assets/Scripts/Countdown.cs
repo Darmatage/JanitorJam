@@ -9,10 +9,16 @@ public class Countdown : MonoBehaviour
     public bool timerIsRunning = false;
     public Text timeText;
 
+    // Problems
+    public GameObject problem;
+
     // Start is called before the first frame update
     void Start()
     {
         timerIsRunning = true;
+
+        // Spawn problems
+        InvokeRepeating("SpawnProblems", 2.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -32,6 +38,8 @@ public class Countdown : MonoBehaviour
                 timerIsRunning = false;
             }
         }
+
+       
     }
 
     void DisplayTime(float timeToDisplay)
@@ -48,5 +56,10 @@ public class Countdown : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
+    }
+
+    void SpawnProblems()
+    {
+        GameObject instance = Instantiate(problem, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }
