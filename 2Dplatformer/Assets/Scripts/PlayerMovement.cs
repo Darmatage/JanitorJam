@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pick Up"))
+        if (other.gameObject.CompareTag("Tool"))
         {
             //How do I make it so they grab the object but it doesn't go away
             other.gameObject.SetActive(false);
