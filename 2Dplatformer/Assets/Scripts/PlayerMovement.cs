@@ -19,4 +19,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Tool") && Input.GetKeyDown(KeyCode.Space));
+        {
+            //How do I make it so they grab the object but it doesn't go away
+            other.gameObject.SetActive(false);
+        }
+    }
+
 }
