@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 856972404}
   - component: {fileID: 856972405}
   - component: {fileID: 856972406}
+  - component: {fileID: 856972407}
   m_Layer: 0
   m_Name: playerGreen
   m_TagString: Player
@@ -653,6 +654,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.910194, y: 14.163147}
   m_EdgeRadius: 0
+--- !u!114 &856972407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856972401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1f0080b717e4645894354c0c2c6313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closestTool: {fileID: 0}
+  hasTool: 0
+  pickedUpTool: {fileID: 0}
 --- !u!1 &1008829142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1356,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ladder
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1230676894852256126, guid: 143519dece5c9bf40a4aba8affc2147b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 143519dece5c9bf40a4aba8affc2147b, type: 3}
 --- !u!1001 &2641144477232116261
 PrefabInstance:
@@ -1409,7 +1426,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: screwDriver
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2641144478821078810, guid: 5dd243164d1678c4ea88e7bf3ad79d91, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5dd243164d1678c4ea88e7bf3ad79d91, type: 3}
 --- !u!1001 &3028255212932765121
 PrefabInstance:
@@ -1478,7 +1496,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: mop
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3028255211938767383, guid: 5be2961aff1cd6a42ae6803b63d6109f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5be2961aff1cd6a42ae6803b63d6109f, type: 3}
 --- !u!1001 &3958497114079312607
 PrefabInstance:
@@ -1547,7 +1566,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: tape
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3958497112432271644, guid: cf197ba30b8b33c4b8c0450ee195b5f3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cf197ba30b8b33c4b8c0450ee195b5f3, type: 3}
 --- !u!1001 &5847490999081976523
 PrefabInstance:
@@ -1616,7 +1636,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5847491000638000380, guid: 30524facd77a72f41837e85b364ab3ca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30524facd77a72f41837e85b364ab3ca, type: 3}
 --- !u!1001 &7073824602767819152
 PrefabInstance:
@@ -1685,5 +1706,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7073824603336725689, guid: 202b836596c67dd47a2f249e36e48228, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 202b836596c67dd47a2f249e36e48228, type: 3}
