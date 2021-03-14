@@ -5,74 +5,90 @@ using UnityEngine;
 public class ToolPickup : MonoBehaviour
 {
 
-    private GameObject playerObject;
-    private PlayerMovement player;
-    private GameObject currTool;
+    // NOTE: THIS SCRIPT IS NOW ATTATCHED TO THE PLAYER OBJECT
 
-    //private bool playerCanHave = true;
+    public GameObject closestTool;
+
+    public bool hasTool = false;
+    public GameObject pickedUpTool = null;
 
     private float distance;
     private float minimumDistance = 2f;
 
     void Start()
     {
-        playerObject = GameObject.FindWithTag("Player");
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
+        //playerObject = GameObject.FindWithTag("Player");
+        //player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
     void Update()
     {
-        //The commented out parts check if the player has a tool in their "hand" already
+        closestTool = FindClosestTool();
 
-        distance = Vector3.Distance(playerObject.transform.position, transform.position);
-
-        if (distance <= minimumDistance)
-        {
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                
-
-                //if (!player.hasTool)
-                //{
+        distance = Vector3.Distance(closestTool.transform.position, transform.position);
+        
+        if (Input.GetKeyDown(KeyCode.X)) {
+            if (distance <= minimumDistance) { 
+                if (!hasTool) { // close to tool and doesn't have tool
                     PickUpTool();
-                    //Destroy(gameObject);
-                //}
-
+                }
+                else // close to tool and has tool
+                {
+                    SwapTool();
+                }
             }
 
-
+            else { // not close to tool and has tool
+                DropTool();
+            }
         }
-        else
+
+
+    }
+
+
+
+
+    public GameObject FindClosestTool()
+    {
+        GameObject[] tool_list;
+        tool_list = GameObject.FindGameObjectsWithTag("Tool");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject tool in tool_list)
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            Vector3 diff = tool.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
             {
-                //if (player.hasTool)
-                //{
-                    DropTool();
-                //}
-
-
+                closest = tool;
+                distance = curDistance;
             }
-
         }
+        return closest;
+    }
 
-    }    
-     void PickUpTool()
+    void PickUpTool()
      {
-        gameObject.SetActive(false);
-        player.hasTool = true;
-        player.tool = gameObject;
-        currTool = gameObject;
-
+        hasTool = true;
+        //pickedUpTool = closestTool
+        //pickedUpTool = GetCorrespondingObjectFromSource(closestTool);
+        Destroy(closestTool);
      }
 
      void DropTool()
      {
-            
-        currTool.SetActive(true);
-        player.tool = null;
-        player.hasTool = false;
-        currTool = null;
-     }
-    
+        hasTool = false;
+        GameObject toolInstance = Instantiate(pickedUpTool, transform);
+        pickedUpTool = null;
+    }
+
+    void SwapTool()
+    {
+        GameObject toolInstance = Instantiate(pickedUpTool, transform);
+        //pickedUpTool = closestTool
+        //pickedUpTool = GetCorrespondingObjectFromSource(closestTool);
+    }
+ 
 }
