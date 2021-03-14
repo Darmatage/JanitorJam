@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - problem
+  - Tool
   layers:
   - Default
   - TransparentFX
