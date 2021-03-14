@@ -8,9 +8,6 @@ public class PlayerMovement : MonoBehaviour
     float moveLimiter = 0.7f;
     public Rigidbody2D rb;
     Vector2 movement;
-    public bool hasTool = false;
-    public GameObject tool = null;
-
 
     private void Start()
     {
@@ -27,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Need to limit diagonal movespeed 
+        //Need to limit diagonal movespeed
         if (movement.x != 0 && movement.y != 0)
         {
             // Move at 70% speed diagonally
@@ -36,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
-    
+    // maybe change fixedupdate to late update
 
 
 
