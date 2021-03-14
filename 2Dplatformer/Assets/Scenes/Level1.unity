@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 143241468}
   - component: {fileID: 143241469}
   m_Layer: 0
-  m_Name: tool2
+  m_Name: ladder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 640210216}
   - component: {fileID: 640210217}
   m_Layer: 0
-  m_Name: tool6
+  m_Name: wrench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 1153497045}
   - component: {fileID: 1153497046}
   m_Layer: 0
-  m_Name: tool4
+  m_Name: mop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 1635444030}
   - component: {fileID: 1635444031}
   m_Layer: 0
-  m_Name: tool1
+  m_Name: screwDriver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1465,7 +1465,7 @@ GameObject:
   - component: {fileID: 1673596470}
   - component: {fileID: 1673596471}
   m_Layer: 0
-  m_Name: tool3
+  m_Name: hose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1776,7 +1776,7 @@ GameObject:
   - component: {fileID: 1878285250}
   - component: {fileID: 1878285251}
   m_Layer: 0
-  m_Name: tool5
+  m_Name: tape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

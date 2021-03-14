@@ -4,64 +4,75 @@ using UnityEngine;
 
 public class ToolPickup : MonoBehaviour
 {
-    //public int carryCapacity = 1;
-    //private GameObject CurrentPickup;
-    private bool playerCanHave = false;
-    PlayerMovement player = null;
 
-    // Start is called before the first frame update
+    private GameObject playerObject;
+    private PlayerMovement player;
+    private GameObject currTool;
+
+    //private bool playerCanHave = true;
+
+    private float distance;
+    private float minimumDistance = 2f;
+
     void Start()
     {
-        
+        playerObject = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!playerCanHave)
-            {
-                DropThing();
-            }
-            else
-            {
-                PickUpThing();
-            }
-            
-        } 
-    }
+        //The commented out parts check if the player has a tool in their "hand" already
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        player = collision.GetComponent<PlayerMovement>();
-        if (player != null && (!player.hasTool))
+        distance = Vector3.Distance(playerObject.transform.position, transform.position);
+
+        if (distance <= minimumDistance)
         {
-            playerCanHave = true;
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                
+
+                //if (!player.hasTool)
+                //{
+                    PickUpTool();
+                    //Destroy(gameObject);
+                //}
+
+            }
+
 
         }
         else
         {
-            playerCanHave = false;
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                //if (player.hasTool)
+                //{
+                    DropTool();
+                //}
+
+
+            }
+
         }
 
-
-        //put if statement for if (other.gameObject.tag == "Problem") here
-    }
-
-    void PickUpThing()
-    {
+    }    
+     void PickUpTool()
+     {
         gameObject.SetActive(false);
         player.hasTool = true;
         player.tool = gameObject;
-        playerCanHave = false;
+        currTool = gameObject;
 
-    }
+     }
 
-    void DropThing()
-    {
-        player.tool.SetActive(true);
+     void DropTool()
+     {
+            
+        currTool.SetActive(true);
         player.tool = null;
         player.hasTool = false;
-    }
+        currTool = null;
+     }
+    
 }
